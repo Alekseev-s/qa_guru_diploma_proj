@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DriverConfig;
 import io.qameta.allure.selenide.AllureSelenide;
-import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -61,7 +60,6 @@ public class DriverHelper {
 
     public static void configureDriver() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        RestAssured.baseURI = getBaseUrl();
 
         Configuration.browser = System.getProperty("browser", getDefaultBrowser());
         Configuration.browserSize = getBrowserSize();
