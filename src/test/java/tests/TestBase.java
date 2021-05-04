@@ -19,7 +19,7 @@ public class TestBase {
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
         if (isRemoteDriver()) {
-            attachVideo(getSessionId());
+            attachVideo();
         }
         closeWebDriver();
     }

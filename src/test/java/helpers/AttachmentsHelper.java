@@ -6,16 +6,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static io.qameta.allure.Allure.addAttachment;
+import static helpers.DriverHelper.getSessionId;
 
 
 public class AttachmentsHelper {
@@ -36,35 +30,14 @@ public class AttachmentsHelper {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    public static void attachVideo(String sessionId) {
-        URL videoUrl = getVideoUrl(sessionId);
-        if (videoUrl != null) {
-            InputStream videoInputStream = null;
-            sleep(1000);
-
-            for (int i = 0; i < 10; i++) {
-                try {
-                    videoInputStream = videoUrl.openStream();
-                    break;
-                } catch (FileNotFoundException e) {
-                    sleep(1000);
-                } catch (IOException e) {
-                    LOG.warn("[ALLURE VIDEO ATTACHMENT ERROR] Cant attach allure video, {}", videoUrl);
-                    e.printStackTrace();
-                }
-            }
-            addAttachment("Video", "video/mp4", videoInputStream, "mp4");
-        }
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String attachVideo() {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + getVideoUrl()
+                + "' type='video/mp4'></video></body></html>";
     }
 
-    public static URL getVideoUrl(String sessionId) {
-        String videoUrl = DriverHelper.getVideoStorage() + sessionId + ".mp4";
-        try {
-            return new URL(videoUrl);
-        } catch (MalformedURLException e) {
-            LOG.warn("[ALLURE VIDEO ATTACHMENT ERROR] Wrong test video url, {}", videoUrl);
-            e.printStackTrace();
-        }
-        return null;
+    public static String getVideoUrl() {
+        return System.getProperty("video_storage") + getSessionId() + ".mp4";
     }
 }
