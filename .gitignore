@@ -5,3 +5,6 @@ gradle/
 build
 gradlew
 gradlew.bat
+
+driver.properties
+testData.properties
