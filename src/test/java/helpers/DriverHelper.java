@@ -43,19 +43,23 @@ public class DriverHelper {
     }
 
     public static String getSessionId() {
-        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid", "");
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 
     public static String getConsoleLogs() {
         return join("\n", getWebDriverLogs(BROWSER));
     }
 
-    public static String getBrowserSize() {
+    public static String getDefaultBrowserSize() {
         return getDriverConfig().browserSize();
     }
 
     public static String getDefaultBrowser() {
         return getDriverConfig().defaultBrowser();
+    }
+
+    public static String getDefaultBrowserVersion() {
+        return getDriverConfig().defaultBrowserVersion();
     }
 
     public static String getBaseUrl() {
@@ -66,7 +70,7 @@ public class DriverHelper {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         Configuration.browser = System.getProperty("browser", getDefaultBrowser());
-        Configuration.browserSize = getBrowserSize();
+        Configuration.browserSize = System.getProperty("browser_size", getDefaultBrowserSize());
         Configuration.baseUrl = getBaseUrl();
 
         if (isRemoteDriver()) {

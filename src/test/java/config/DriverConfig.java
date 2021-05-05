@@ -17,8 +17,11 @@ public interface DriverConfig extends Config {
     @Key("web.browser.size")
     String browserSize();
 
-    @Key("web.default.browser")
+    @Key("web.browser")
     String defaultBrowser();
+
+    @Key("web.browser.version")
+    String defaultBrowserVersion();
 
     @Key("web.base.url")
     String baseUrl();

@@ -46,8 +46,6 @@ public class ProductListTests extends TestBase {
             assertThat(maxMinPriceList.get(7).$(".new-item-list-price-im").getText(), greaterThan(maxMinPriceList.get(10).$(".new-item-list-price-im").getText()));
             assertThat(maxMinPriceList.get(15).$(".new-item-list-price-im").getText(), greaterThan(maxMinPriceList.get(20).$(".new-item-list-price-im").getText()));
         });
-
-
     }
 
     @Test
