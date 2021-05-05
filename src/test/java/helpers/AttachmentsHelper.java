@@ -3,18 +3,16 @@ package helpers;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static helpers.DriverHelper.getSessionId;
+import static helpers.DriverHelper.getVideoStorage;
 
 
 public class AttachmentsHelper {
-    private static final Logger LOG = LoggerFactory.getLogger(AttachmentsHelper.class);
-
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
@@ -31,13 +29,18 @@ public class AttachmentsHelper {
     }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
-    public static String attachVideo() {
+    public static String attachVideo(String sessionId) {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + getVideoUrl()
+                + getVideoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
     }
 
-    public static String getVideoUrl() {
-        return System.getProperty("video_storage") + getSessionId() + ".mp4";
+    public static String getVideoUrl(String sessionId) {
+        try {
+            return new URL(getVideoStorage() + sessionId + ".mp4") + "";
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

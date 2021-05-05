@@ -17,9 +17,6 @@ public interface DriverConfig extends Config {
     @Key("web.browser.size")
     String browserSize();
 
-    @Key("web.remote.video.storage")
-    String videoStorage();
-
     @Key("web.default.browser")
     String defaultBrowser();
 

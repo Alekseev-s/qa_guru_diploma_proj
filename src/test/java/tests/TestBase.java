@@ -18,8 +18,8 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
-        if (isRemoteDriver()) {
-            attachVideo();
+        if (isVideo()) {
+            attachVideo(getSessionId());
         }
         closeWebDriver();
     }

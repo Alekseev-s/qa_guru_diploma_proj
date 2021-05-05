@@ -35,7 +35,11 @@ public class DriverHelper {
     }
 
     public static String getVideoStorage() {
-        return getDriverConfig().videoStorage();
+        return System.getProperty("web.remote.video.storage");
+    }
+
+    public static boolean isVideo() {
+        return getVideoStorage() != null;
     }
 
     public static String getSessionId() {
