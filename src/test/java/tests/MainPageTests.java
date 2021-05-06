@@ -1,5 +1,7 @@
 package tests;
 
+import allure.JiraIssue;
+import allure.JiraIssues;
 import allure.ProjectTeam;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Feature;
@@ -15,10 +17,11 @@ import static io.qameta.allure.Allure.step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+@ProjectTeam
+@JiraIssues({@JiraIssue("QC3-33")})
 @Feature("Тесты главной страницы")
 public class MainPageTests extends TestBase {
     @Test
-    @ProjectTeam
     @DisplayName("Тест логина")
     void loginTest() {
         step("Открываем главную страницу", () -> {
@@ -41,7 +44,6 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @ProjectTeam
     @DisplayName("Смена города с главной страницы")
     void changeCityTest() {
         step("Открываем главную страницу", () -> {
@@ -66,7 +68,6 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @ProjectTeam
     @DisplayName("Шапка страницы остается видна при скроллинге")
     void toolbarVisibilityTest() {
         step("Открываем главную страницу", () -> {

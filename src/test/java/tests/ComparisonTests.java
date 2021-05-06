@@ -1,17 +1,20 @@
 package tests;
 
+import allure.JiraIssue;
+import allure.JiraIssues;
 import allure.ProjectTeam;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.ComparisonBaseSteps;
 
+@ProjectTeam
+@JiraIssues({@JiraIssue("QC3-33")})
 @Feature("Тесты сравнения товаров")
 public class ComparisonTests extends TestBase {
     ComparisonBaseSteps steps = new ComparisonBaseSteps();
 
     @Test
-    @ProjectTeam
     @DisplayName("В шапке станицы отображается текущее кол-во добавленных для сравнения товаров")
     void comparisonLabelTest() {
         steps.openMainPage();
@@ -21,7 +24,6 @@ public class ComparisonTests extends TestBase {
     }
 
     @Test
-    @ProjectTeam
     @DisplayName("Удаление из списка сравнения c карточки товара")
     void removeComparisonTest() {
         steps.openMainPage();

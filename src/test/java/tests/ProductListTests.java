@@ -1,5 +1,7 @@
 package tests;
 
+import allure.JiraIssue;
+import allure.JiraIssues;
 import allure.ProjectTeam;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
@@ -15,12 +17,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 
+@ProjectTeam
+@JiraIssues({@JiraIssue("QC3-33")})
 @Feature("Тесты списка товаров")
 public class ProductListTests extends TestBase {
     Random random = new Random();
 
     @Test
-    @ProjectTeam
     @DisplayName("Сортировка товаров по цене (по убыванию и по возрастанию)")
     void sortingByPriceTest() {
         step("Открываем каталог шуруповертов", () -> {
@@ -51,7 +54,6 @@ public class ProductListTests extends TestBase {
     }
 
     @Test
-    @ProjectTeam
     @DisplayName("Фильтрация товаров по параметру \"Вес\"")
     void filterProductsTest() {
         step("Открываем каталог бензопил", () -> {
