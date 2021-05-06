@@ -6,15 +6,13 @@ plugins {
 sourceCompatibility = 1.8
 
 repositories {
-    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     mavenCentral()
 }
 
 def allureVersion = "2.13.8",
     selenideVersion = "5.20.1",
     junitVersion = "5.7.1",
-    ownerVersion = "1.0.12",
-    restAssuredVersion = "4.3.1"
+    ownerVersion = "1.0.12"
 
 allure {
     version = "${allureVersion}"
@@ -28,10 +26,8 @@ allure {
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:1.9.6",
-            "io.rest-assured:rest-assured:$restAssuredVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-params:$junitVersion",
             "org.aeonbits.owner:owner:$ownerVersion")
@@ -45,5 +41,4 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 }
