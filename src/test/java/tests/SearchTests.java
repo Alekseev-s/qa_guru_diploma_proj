@@ -1,5 +1,6 @@
 package tests;
 
+import allure.ProjectTeam;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
@@ -16,6 +17,7 @@ public class SearchTests extends TestBase {
     Random random = new Random();
 
     @Test
+    @ProjectTeam
     @DisplayName("Поиск товара по категории")
     void searchProductTest() {
         step("Открываем главную страницу", () -> {
@@ -38,6 +40,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @ProjectTeam
     @DisplayName("Поиск бренда BOSCH")
     void searchBrandTest() {
         step("Открываем главную страницу", () -> {

@@ -8,6 +8,6 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.TYPE})
 @AutomationQA("Alekseev-s")
 @ManualQA("Alekseev-s")
-public @interface SuperTeam {
-    
+public @interface ProjectTeam {
+
 }

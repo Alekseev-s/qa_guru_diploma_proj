@@ -1,5 +1,6 @@
 package tests;
 
+import allure.ProjectTeam;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
@@ -17,6 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
 @Feature("Тесты главной страницы")
 public class MainPageTests extends TestBase {
     @Test
+    @ProjectTeam
     @DisplayName("Тест логина")
     void loginTest() {
         step("Открываем главную страницу", () -> {
@@ -39,6 +41,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @ProjectTeam
     @DisplayName("Смена города с главной страницы")
     void changeCityTest() {
         step("Открываем главную страницу", () -> {
@@ -63,6 +66,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @ProjectTeam
     @DisplayName("Шапка страницы остается видна при скроллинге")
     void toolbarVisibilityTest() {
         step("Открываем главную страницу", () -> {
