@@ -8,3 +8,5 @@ ___
 | Selenoid | Allure Report | Allure TestOps | Jenkins | Jira | Telegram |
 |----------------|:---------:|----------------:|----------------:|----------------:|----------------:|
 | <img src="images/Selenoid.svg" width="50" height="50"> | <img src="images/Allure Report.svg" width="50" height="50"> | <img src="images/Allure TestOps.svg" width="50" height="50"> | <img src="images/Jenkins.svg" width="50" height="50"> | <img src="images/Jira.svg" width="50" height="50"> | <img src="images/Telegram.svg" width="50" height="50">
+___
+## Примеры используемых технологий:
