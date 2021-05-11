@@ -36,7 +36,8 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.aeonbits.owner:owner:$ownerVersion")
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "org.hamcrest:hamcrest-all:1.3")
     testRuntimeOnly "org.junit.platform:junit-platform-launcher:$junitPlatformVersion"
 }
 
