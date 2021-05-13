@@ -37,3 +37,7 @@ ___
 ### :arrow_forward: По результату выполнения тестов отправляется уведомление в телеграм
 
 ![](images/telegram.png)
+
+### :arrow_forward: Видео прохождения одного из тестов, взятое из Selenoid
+
+![](images/testExample.gif)
