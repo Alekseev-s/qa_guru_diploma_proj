@@ -35,10 +35,10 @@ public class ProductListTests extends TestBase {
         });
 
         step("Проверяем, что товары отсортированы по возрастанию цены", () -> {
-            ElementsCollection minMaxPriceList = $$("#product-list li");
-            assertThat(minMaxPriceList.get(0).$(".new-item-list-price-im").getText(), lessThan(minMaxPriceList.get(5).$(".new-item-list-price-im").getText()));
-            assertThat(minMaxPriceList.get(7).$(".new-item-list-price-im").getText(), lessThan(minMaxPriceList.get(10).$(".new-item-list-price-im").getText()));
-            assertThat(minMaxPriceList.get(15).$(".new-item-list-price-im").getText(), lessThan(minMaxPriceList.get(20).$(".new-item-list-price-im").getText()));
+            ElementsCollection productsPriceList = $$("#product-list .new-item-list-price-im");
+            assertThat(productsPriceList.get(0).getText(), lessThan(productsPriceList.get(5).getText()));
+            assertThat(productsPriceList.get(7).getText(), lessThan(productsPriceList.get(10).getText()));
+            assertThat(productsPriceList.get(15).getText(), lessThan(productsPriceList.get(20).getText()));
         });
 
         step("Задаем сортировку по цене по убыванию", () -> {
@@ -46,10 +46,10 @@ public class ProductListTests extends TestBase {
         });
 
         step("Проверяем, что товары отсортированы по убыванию цены", () -> {
-            ElementsCollection maxMinPriceList = $$("#product-list li");
-            assertThat(maxMinPriceList.get(0).$(".new-item-list-price-im").getText(), greaterThan(maxMinPriceList.get(5).$(".new-item-list-price-im").getText()));
-            assertThat(maxMinPriceList.get(7).$(".new-item-list-price-im").getText(), greaterThan(maxMinPriceList.get(10).$(".new-item-list-price-im").getText()));
-            assertThat(maxMinPriceList.get(15).$(".new-item-list-price-im").getText(), greaterThan(maxMinPriceList.get(20).$(".new-item-list-price-im").getText()));
+            ElementsCollection productsPriceList = $$("#product-list .new-item-list-price-im");
+            assertThat(productsPriceList.get(0).getText(), greaterThan(productsPriceList.get(5).getText()));
+            assertThat(productsPriceList.get(7).getText(), greaterThan(productsPriceList.get(10).getText()));
+            assertThat(productsPriceList.get(15).getText(), greaterThan(productsPriceList.get(20).getText()));
         });
     }
 
